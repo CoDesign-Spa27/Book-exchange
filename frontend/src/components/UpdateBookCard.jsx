@@ -3,51 +3,50 @@ import axios from "axios";
 import Lottie from "react-lottie-player";
 import { useNavigate, useParams } from "react-router-dom";
 import bookReadingLottie from "../assets/animated-book-reading.json";
-import { useDispatch, useSelector } from 'react-redux';
-import { showLoader, hideLoader } from '../store/loaderSlice';
-import Loader from '../components/Loader';
-import Header from "./Header"; 
+import { useDispatch, useSelector } from "react-redux";
+import { showLoader, hideLoader } from "../store/loaderSlice";
+import Loader from "../components/Loader";
+import Header from "./Header";
 
 const UpdateBookCard = () => {
-  const navigate  = useNavigate();
-  useEffect(()=>{
-  
-      const token = localStorage.getItem('token')
-      if(!token){
-          navigate('/login')
-      }
-  })
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+  });
   const { bookId } = useParams();
-   
+
   const [formData, setFormData] = useState({
     title: "",
     author: "",
     genre: "",
   });
- 
+
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loader.loading);
   useEffect(() => {
-    dispatch(showLoader())
+    dispatch(showLoader());
 
     const fetchBookData = async () => {
       try {
-        const response = await axios.get(`https://book-exchange-1.onrender.com/api/me/book/${bookId}`,{
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`, 
-          },
-        });
+        const response = await axios.get(
+          `https://book-exchange-1.onrender.com/api/me/book/${bookId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
         setFormData(response.data);
-        console.log("response of book" + response.data)
-         
+        console.log("response of book" + response.data);
       } catch (error) {
         setError("Failed to fetch book data");
-        
-      }finally{
-
-        dispatch(hideLoader())
+      } finally {
+        dispatch(hideLoader());
       }
     };
 
@@ -60,21 +59,25 @@ const UpdateBookCard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(showLoader())
+    dispatch(showLoader());
     try {
-      await axios.put(`https://book-exchange-1.onrender.com/api/me/book/edit/${bookId}`, formData,{
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`, 
-        },
-      }); // Use PUT for updating
-      
+      await axios.put(
+        `https://book-exchange-1.onrender.com/api/me/book/edit/${bookId}`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      ); // Use PUT for updating
+
       setSuccessMessage("Book updated successfully!");
       setError(""); // Clear previous errors
       navigate(`/me/books`); // Redirect to user books page or any other page
     } catch (error) {
       setError("Failed to update the book");
-    }finally{
-      dispatch(hideLoader())
+    } finally {
+      dispatch(hideLoader());
     }
   };
 
@@ -156,7 +159,7 @@ const UpdateBookCard = () => {
                 <div className="flex items-center justify-between">
                   <button
                     type="submit"
-                    className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                    className="inline-block rounded-lg bg-purple-500 px-5 py-3 text-sm font-medium text-white"
                   >
                     Update Book
                   </button>
