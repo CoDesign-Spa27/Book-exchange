@@ -34,7 +34,7 @@ const UpdateBookCard = () => {
 
     const fetchBookData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/me/book/${bookId}`,{
+        const response = await axios.get(`https://book-exchange-1.onrender.com/api/me/book/${bookId}`,{
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`, 
           },

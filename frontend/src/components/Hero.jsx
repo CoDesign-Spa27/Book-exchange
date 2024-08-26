@@ -28,7 +28,7 @@ const Hero = () => {
 
         <a
           className="block w-full rounded border border-purple-600 px-12 py-3 text-sm font-medium text-white hover:bg-purple-600 focus:outline-none focus:ring active:bg-purple-500 sm:w-auto"
-          href="/addBook"
+          href="/me/addBook"
         >
           Add Book
         </a>

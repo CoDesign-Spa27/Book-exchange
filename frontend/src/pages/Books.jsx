@@ -31,7 +31,7 @@ const Books = () => {
         return;
       }
 
-      const response = await axios.get('http://localhost:5000/api/books', {
+      const response = await axios.get('https://book-exchange-1.onrender.com/api/books', {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the Authorization header
         },

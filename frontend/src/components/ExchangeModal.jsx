@@ -8,7 +8,7 @@ const ExchangeModal = ({ onClose, onRequest, offeredBookId }) => {
   useEffect(() => {
     const fetchMyBooks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/me/books', {
+        const response = await axios.get('https://book-exchange-1.onrender.com/api/me/books', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

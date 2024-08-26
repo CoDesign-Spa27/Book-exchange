@@ -31,7 +31,7 @@ const UserBooks = () => {
             return;
           }
         
-      const response = await axios.get('http://localhost:5000/api/me/books',{
+      const response = await axios.get('https://book-exchange-1.onrender.com/api/me/books',{
         headers: {
             Authorization: `Bearer ${token}`, // Include the token in the Authorization header
           },
@@ -53,7 +53,7 @@ const UserBooks = () => {
     try {
       dispatch(showLoader());
   console.log(bookId)
-      const response = await axios.delete(`http://localhost:5000/api/me/book/${bookId}`, {
+      const response = await axios.delete(`https://book-exchange-1.onrender.com/api/me/book/${bookId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`, 
         },

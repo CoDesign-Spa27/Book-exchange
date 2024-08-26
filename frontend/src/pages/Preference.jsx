@@ -32,7 +32,7 @@ const Preference = () => {
       }
       const decoded = jwtDecode(token);
       const userId= decoded.userId
-      const response = await axios.get(`http://localhost:5000/api/preference?userId=${userId}`, {
+      const response = await axios.get(`https://book-exchange-1.onrender.com/api/preference?userId=${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the Authorization header
         },

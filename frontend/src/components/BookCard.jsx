@@ -4,6 +4,7 @@ import Lottie from 'react-lottie-player';
 import userLottie from '../assets/user.json';
 import ExchangeModal from './ExchangeModal'; 
 import useCurrentUser from '../useCurrenUser';
+import Loader from './Loader';
 const BookCard = ({ _id, title, author, genre, uploadedAt, owner }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [status, setStatus] = useState('');
@@ -22,7 +23,7 @@ const BookCard = ({ _id, title, author, genre, uploadedAt, owner }) => {
     setLoading(true);
     try {
         await axios.post(
-        'http://localhost:5000/api/exchange',
+        'https://book-exchange-1.onrender.com/api/exchange',
         {
           toUser: owner._id,
           bookOffered: offeredBookId,
@@ -42,9 +43,7 @@ const BookCard = ({ _id, title, author, genre, uploadedAt, owner }) => {
     }
   };
 
-  if (userLoading) {
-    return <p>Loading user data...</p>;  
-  }
+  
 console.log(owner._id)
   const showRequestButton = user && user._id !== owner._id;
   console.log(showRequestButton)

@@ -61,7 +61,7 @@ const Register = () => {
 
     const formData = { username, email, password, bookPreferences: preferences };
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await axios.post('https://book-exchange-1.onrender.com/api/auth/register', formData);
       console.log('Form data submitted successfully:', response.data);
       navigate('/login'); // Redirect to login page on successful registration
     } catch (error) {

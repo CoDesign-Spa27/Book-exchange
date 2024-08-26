@@ -14,7 +14,7 @@ const ExchangeRequests = () => {
     dispatch(showLoader())
     const fetchRequests = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/exchange', {
+        const response = await axios.get('https://book-exchange-1.onrender.com/api/exchange', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -38,7 +38,7 @@ const ExchangeRequests = () => {
 
   const handleAccept = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/exchange/accept/${id}`, {}, {
+      await axios.put(`https://book-exchange-1.onrender.com/api/exchange/accept/${id}`, {}, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -51,7 +51,7 @@ const ExchangeRequests = () => {
 
   const handleReject = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/exchange/reject/${id}`, {}, {
+      await axios.put(`https://book-exchange-1.onrender.com/api/exchange/reject/${id}`, {}, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

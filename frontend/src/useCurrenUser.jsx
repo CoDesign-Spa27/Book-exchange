@@ -9,7 +9,7 @@ const useCurrentUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/auth/me', {
+        const response = await axios.get('https://book-exchange-1.onrender.com/api/auth/me', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
