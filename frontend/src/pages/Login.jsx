@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import BookReadingImage from '/register-page-image.png'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
+
 const Login = () => {
 
 
@@ -137,7 +138,9 @@ const handleSubmit = async (event) => {
 
                   <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                     Don't have an account?
-                    <a href="/register" className="text-gray-700 underline">Register</a>.
+                    <Link to={'/register'}>
+                    <a  className="text-gray-700 underline">Register</a>.
+                    </Link>
                   </p>
                 </div>
               </form>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BookReadingImage from '/register-page-image.png';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -199,7 +199,9 @@ const Register = () => {
                   </button>
                   <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                     Already have an account?
-                    <a href="/login" className="text-gray-700 underline" >Log in</a>.
+                    <Link to={"/login"}>
+                    <a  className="text-gray-700 underline" >Log in</a>.
+                    </Link>
                   </p>
                 </div>
               </form>

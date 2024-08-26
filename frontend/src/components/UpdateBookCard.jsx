@@ -62,7 +62,7 @@ const UpdateBookCard = () => {
     e.preventDefault();
     dispatch(showLoader())
     try {
-      await axios.put(`http://localhost:5000/api/me/book/edit/${bookId}`, formData,{
+      await axios.put(`https://book-exchange-1.onrender.com/api/me/book/edit/${bookId}`, formData,{
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`, 
         },
