@@ -7,7 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '', general: '' });
-  const [loading, setLoading] = useState(false); // New loading state
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,8 +39,7 @@ const Login = () => {
     event.preventDefault();
     if (!validateForm()) return;
 
-    setLoading(true); // Start loading when submitting the form
-
+    setLoading(true); 
     const formData = { email, password };
 
     try {
@@ -62,7 +61,7 @@ const Login = () => {
         console.error('Error submitting form data:', error);
       }
     } finally {
-      setLoading(false); // Stop loading after the request is complete
+      setLoading(false); 
     }
   };
 

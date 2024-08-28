@@ -10,6 +10,7 @@ const Register = () => {
   const [preferences, setPreferences] = useState([]);
   const [newPreference, setNewPreference] = useState('');
   const [errors, setErrors] = useState({ username: '', email: '', password: '', general: '' });
+  const [loading, setLoading] = useState(false); 
 
   const navigate = useNavigate();
 
@@ -58,6 +59,7 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateForm()) return;
+    setLoading(true); 
 
     const formData = { username, email, password, bookPreferences: preferences };
     try {
@@ -70,6 +72,9 @@ const Register = () => {
       } else {
         console.error('Error submitting form data:', error);
       }
+    }finally{
+      setLoading(false); 
+
     }
   };
 
@@ -94,7 +99,12 @@ const Register = () => {
               </h1>
 
             {errors.general && <p className="py-4 text-red-500 text-sm">{errors.general}</p>}
-              <form onSubmit={handleSubmit} className="mt-3 grid grid-cols-6 gap-6">
+              
+            {loading ? (
+                <div className="flex justify-center items-center mt-8">
+                  <div className="loader border-t-transparent border-solid animate-spin rounded-full border-purple-600 border-4 h-12 w-12"></div>
+                </div>
+              ) : (<form onSubmit={handleSubmit} className="mt-3 grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-4">
                   <label htmlFor="username" className="block text-sm font-medium text-gray-700">
                     Username
@@ -205,6 +215,7 @@ const Register = () => {
                   </p>
                 </div>
               </form>
+              )}
             </div>
           </main>
         </div>
