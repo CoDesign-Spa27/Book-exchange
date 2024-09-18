@@ -67,7 +67,7 @@ const Login = () => {
 
   return (
     <div className="w-full">
-      <section className="bg-neutral-200">
+      <section className="bg-neutral-200 h-screen">
         <div className="lg:grid w-screen lg:min-h-screen lg:grid-cols-12">
           <aside className="relative bg-purple-300 md:flex md:items-center md:justify-center hidden h-10 md:order-last lg:col-span-5 lg:h-full xl:col-span-6">
             <img src={BookReadingImage} className="object-contain hidden lg:block w-96 h-96" alt="image" />
