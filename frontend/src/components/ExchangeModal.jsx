@@ -46,7 +46,7 @@ const ExchangeModal = ({ onClose, onRequest, offeredBookId }) => {
               <button
                 onClick={() => handleSelect(book._id)}
                 className={`w-full text-left ${
-                  selectedBook === book._id ? "bg-purple-100" : ""
+                  selectedBook === book._id ? "bg-purple-600 text-white" : ""
                 }`}
               >
                 {book.title}

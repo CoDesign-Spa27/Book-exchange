@@ -33,10 +33,10 @@ const Books = () => {
 
       const response = await axios.get('https://book-exchange-1.onrender.com/api/books', {
         headers: {
-          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+          Authorization: `Bearer ${token}`, 
         },
       });
-      console.log(response.data)
+     
       setBooks(response.data);
       setFilteredBooks(response.data);
     } catch (error) {

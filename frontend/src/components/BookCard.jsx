@@ -9,8 +9,8 @@ const BookCard = ({ _id, title, author, genre, uploadedAt, owner }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
-  const { user, loading: userLoading } = useCurrentUser();
-  console.log(user);
+  const { user } = useCurrentUser();
+ 
   const formattedDate = uploadedAt
     ? new Date(uploadedAt).toLocaleDateString("en-US", {
         year: "numeric",
@@ -42,10 +42,9 @@ const BookCard = ({ _id, title, author, genre, uploadedAt, owner }) => {
       setLoading(false);
     }
   };
-
-  console.log(owner._id);
+ ;
   const showRequestButton = user && user._id !== owner._id;
-  console.log(showRequestButton);
+ 
   return (
     <>
       <div className="relative capitalize block overflow-hidden bg-white rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8">

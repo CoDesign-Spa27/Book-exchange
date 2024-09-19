@@ -48,7 +48,7 @@ const Login = () => {
       if (response.data && response.data.token) {
         const token = response.data.token;
         localStorage.setItem('token', token);
-        navigate('/home'); // Navigate to the home page after successful login
+        navigate('/home'); 
       } else {
         console.log("Error setting token");
       }
@@ -82,9 +82,8 @@ const Login = () => {
               </h1>
 
               <h1 className="mt-6 text-xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Please Login
+                Please {loading ? 'wait' : 'login'} to continue              
               </h1>
-
               {errors.general && <p className="mt-4 text-red-500 text-sm">{errors.general}</p>}
 
               {loading ? (

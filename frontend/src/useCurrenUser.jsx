@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const useCurrentUser = () => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [userLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const useCurrentUser = () => {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
-        console.log(response.data)
+       
         setUser(response.data);
       } catch (err) {
         setError(err);
@@ -26,7 +26,7 @@ const useCurrentUser = () => {
     fetchUser();
   }, []);
 
-  return { user, loading, error };
+  return { user, userLoading, error };
 };
 
 export default useCurrentUser;

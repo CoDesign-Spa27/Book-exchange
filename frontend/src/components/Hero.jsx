@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 const Hero = () => {
   return (
     <div>
-      <section className="bg-gray-900 text-white">
+      <section className="bg-gray-900 h-screen text-white">
   <div className="mx-auto w-full px-4 py-32 lg:flex lg:h-screen lg:items-center">
     <div className="mx-auto max-w-3xl text-center">
       <h1
@@ -29,7 +29,7 @@ const Hero = () => {
           </Link>
 <Link to={"/me/addBook"}>
         <a
-          className="block w-full rounded border border-purple-600 px-12 py-3 text-sm font-medium text-white hover:bg-purple-600 focus:outline-none focus:ring active:bg-purple-500 sm:w-auto"
+          className="block w-full rounded border border-purple-600 px-12 py-3 text-sm font-medium text-white hover:bg-purple-600 focus:outline-none focus:ring hover:text-white active:bg-purple-500 sm:w-auto"
         
           >
           Add Book
